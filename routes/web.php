@@ -39,6 +39,12 @@ Route::group(['middleware' => ['auth', 'checkrole2:1,2']], function() {
 // untuk admin
 Route::group(['middleware' => ['auth', 'checkrole2:1']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
+    // Crud
+    Route::resource('menu',App\Http\Controllers\MenuController::class);
+    Route::resource('kategori',App\Http\Controllers\KategoriController::class);
+    Route::resource('pelanggan',App\Http\Controllers\PelangganController::class);
+    Route::resource('pesanan',App\Http\Controllers\PesananController::class);
+    Route::resource('detailpesanan',App\Http\Controllers\DetailPesananController::class);
 });
 
 // untuk pegawai
@@ -72,13 +78,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get('/admin',[App\Http\Controllers\AdminController::class,'index'])->name('/admin');
 // Route::get('/pengguna',[App\Http\Controllers\PenggunaController::class,'index'])->name('/pengguna');
 
-// Crud
-Route::resource('menu',App\Http\Controllers\MenuController::class);
-Route::resource('kategori',App\Http\Controllers\KategoriController::class);
-Route::resource('pelanggan',App\Http\Controllers\PelangganController::class);
-Route::resource('pesanan',App\Http\Controllers\PesananController::class);
-Route::resource('detailpesanan',App\Http\Controllers\DetailPesananController::class);
-Route::get('/get-harga/{IdMenu}', 'DetailPesananController@getHarga')->name('get-harga');
+
+// Route::get('/get-harga/{IdMenu}', 'DetailPesananController@getHarga')->name('get-harga');
 
 
 

@@ -60,7 +60,7 @@
                 <strong>Nama Menu:</strong>
                 <select class="form-control" id="menu-option" name="id_menu">
                     @foreach ($menu as $menu)
-                        <option value="{{ $menu->id_menu }}">{{ $menu->nama_menu }}</option>
+                        <option value="{{ $menu->id_menu }}" data-harga="{{ $menu->harga }}">{{ $menu->nama_menu }}</option>
                     @endforeach
                  </select>
             </div>
@@ -68,7 +68,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Harga:</strong>
-                <input type="number" name="harga" id="harga" class="form-control" placeholder="Harga" >
+                <input type="number" name="harga" id="harga" class="form-control" placeholder="Harga" readonly>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -112,6 +112,13 @@
         //         }
         //     });
         // }
+
+        $('#menu-option').on('change', function() {
+            const selected = $(this).find('option:selected');
+            const harga = selected.data('harga'); 
+
+            $("#harga").val(harga);
+        });
 
         // Fungsi untuk menghitung subtotal saat mengubah nilai input jumlah atau harga
         function hitungSubTotal() {
