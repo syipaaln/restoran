@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth', 'checkrole2:2']], function() {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
