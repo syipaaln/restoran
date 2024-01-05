@@ -81,6 +81,11 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Halo, {{ Auth::user()->name }}</h1>
                         <ol class="breadcrumb mb-4">

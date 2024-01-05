@@ -99,7 +99,7 @@
             @endif
 
             <div class="card-body">
-                <form method="post" action="/">
+                <form method="post" action="/" onsubmit="return validateForm()">
                     @csrf
                     <div class="mb-3">
                       <label for="email" class="form-label">Email</label>
@@ -119,10 +119,38 @@
                         </div>
                       @enderror
                     </div>
+
+                    <div class="mb-3">
+                        <select name="role_id" class="form-control" id="role">
+                            <option value="" selected disabled>--Pilih--</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Pembeli</option>
+                        </select>
+                    </div>
                     
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            var roleSelect = document.getElementById("role");
+            var selectedRole = roleSelect.value;
+
+            // if (selectedRole === "Admin" || selectedRole === "Pembeli") {
+            //     alert("Anda tidak diizinkan memilih role ini.");
+            //     return false; // Mencegah formulir dikirim
+            // }
+
+            if (selectedRole === "") {
+                alert("Silakan pilih role Anda.");
+                return false; // Mencegah formulir dikirim
+            }
+
+            // Formulir akan dikirim jika role bukan Admin atau Pembeli
+            return true;
+        }
+    </script>
 @endsection

@@ -94,10 +94,15 @@
                         </div>
                         
                     
-                        @if ($message = Session::get('succes'))
+                        {{-- @if ($message = Session::get('succes'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
                         </div>
+                        @endif --}}
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
                         @endif
                     
                         <table class="table table-bordered">
@@ -126,7 +131,7 @@
                                         @csrf
                                         @method('DELETE')
                     
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Jika Anda menghapus data ini, Anda akan menghapus data pesanan yang menggunakan data pelanggan ini. Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                                     </form>
                                 </td>
                             </tr>

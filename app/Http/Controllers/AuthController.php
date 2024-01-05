@@ -16,7 +16,8 @@ class AuthController extends Controller
         // validasi
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'role_id' => 'required|in:1,2', // Sesuaikan dengan peran yang diizinkan
         ]);
 
         if (auth()->attempt($credentials)) {
@@ -26,16 +27,16 @@ class AuthController extends Controller
 
             if (auth()->user()->role_id === 1) {
                 // jika user admin
-                return redirect()->intended('/admin');
+                return redirect()->intended('/admin')->with('success', 'Login berhasil.');
             } else {
                 // jika user pembeli
-                return redirect()->intended('/pembeli');
+                return redirect()->intended('/pembeli')->with('success', 'Login berhasil.');
             }
         }
 
         // jika email atau password salah
         // kirimkan session error
-        return back()->with('error', 'email atau password salah');
+        return back()->with('error', 'Email atau password salah. Atau anda tidak diizinkan memilih role itu.');
     }
 
     public function logout(Request $request) {

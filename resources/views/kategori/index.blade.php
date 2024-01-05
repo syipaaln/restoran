@@ -94,10 +94,15 @@
                         </div>
                         
                     
-                        @if ($message = Session::get('succes'))
+                        {{-- @if ($message = Session::get('succes'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
                         </div>
+                        @endif --}}
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
                         @endif
                     
                         <table class="table table-bordered">
