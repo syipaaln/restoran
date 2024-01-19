@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\KategoriMenuController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth', 'checkrole2:1']], function() {
     Route::resource('pelanggan',App\Http\Controllers\PelangganController::class);
     Route::resource('pesanan',App\Http\Controllers\PesananController::class);
     Route::resource('detailpesanan',App\Http\Controllers\DetailPesananController::class);
+    Route::resource('order',App\Http\Controllers\OrderController::class);
 });
 
 // untuk pegawai

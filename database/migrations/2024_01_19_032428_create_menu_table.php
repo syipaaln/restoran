@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->unsignedBigInteger('id_menu');
+            // $table->binary('image');
+            $table->string('foto', 200)->default('default.png');
             $table->string('nama_menu');
             $table->integer('harga');
             $table->text('deskripsi');
-            // $table->unsignedBigInteger('id_kategori');
-            $table->foreign('id_kategori')->references('id_kategori')->on('kategoris')->onDelete('cascade');
+            $table->unsignedBigInteger('id_kategori');
             $table->timestamps();
         });
     }

@@ -140,11 +140,11 @@
               </p>
 
               <div class="btn-box">
-                <a href="" class="btn-1">
-                  Contact Us
+                <a href="{{ route('login') }}" class="btn-1">
+                  Login
                 </a>
-                <a href="{{ route('login') }}" class="btn-2">
-                  Order Now
+                <a href="{{ route('register') }}" class="btn-2">
+                  Register
                 </a>
               </div>
 

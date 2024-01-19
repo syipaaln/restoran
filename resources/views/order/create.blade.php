@@ -4,10 +4,10 @@
 <div class="row mt-5 mb-5">
     <div class="col-lg-12 margin-tb">
         <div class="float-left">
-            <h2>Tambah Menu</h2>
+            <h2>Create Order Baru</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('menu.index') }}"> Kembali</a>
+            <a class="btn btn-secondary" href="{{ route('order.index') }}"> Kembali</a>
         </div>
     </div>
 </div>
@@ -23,42 +23,32 @@
     </div>
 @endif
 
-<form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('order.store') }}" method="POST">
     @csrf
 
      <div class="row">
-        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Id menu:</strong>
-                <input type="text" name="id_menu" class="form-control" placeholder="Id Menu">
-            </div>
-        </div> --}}
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Foto Menu:</strong>
-                <input type="file" name="foto" class="form-control" placeholder="Foto Menu">
+                <strong>Id Order:</strong>
+                <input type="text" name="id_order" class="form-control" placeholder="Id Order">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kategori:</strong>
-                <select class="form-control" id="kategori-option" name="id_kategori">
-                    @foreach ($kategori as $kat)
-                        <option value="{{ $kat->id_kategori }}">{{ $kat->nama_kategori }}</option>
-                    @endforeach
-                 </select>
+                <strong>Nama Order:</strong>
+                <input type="text" name="nm_order" class="form-control" placeholder="Nama Order">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Menu:</strong>
-                <input type="text" name="nama_menu" class="form-control" placeholder="Nama Menu">
+                <strong>Tanggal Order:</strong>
+                <input type="date" name="tgl_order" class="form-control" placeholder="Tanggal Order">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Harga:</strong>
-                <input type="number" name="harga" class="form-control" placeholder="Harga">
+                <strong>Jumlah Order:</strong>
+                <input type="number" name="jmlh_order" class="form-control" placeholder="Jumlah Order">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -68,7 +58,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Tambah</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
 

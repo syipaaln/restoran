@@ -13,7 +13,7 @@ class Menu extends Model
     protected $primaryKey = 'id_menu';
 
     protected $fillable = [
-        'id_kategori','nama_menu','harga','deskripsi'
+        'foto','id_kategori','nama_menu','harga','deskripsi'
     ];
 
     // Definisikan relasi ke model Kategori
