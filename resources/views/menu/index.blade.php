@@ -110,9 +110,9 @@
                                 <th width="20px" class="text-center">No</th>
                                 <th width="120px" class="text-center">Id Menu</th>
                                 <th width="120px" class="text-center">Gambar Menu</th>
-                                <th width="20px" class="text-center">Kategori</th>
+                                <th width="200px" class="text-center">Kategori</th>
                                 <th width="200px"class="text-center">Nama Menu</th>
-                                <th width="200px"class="text-center">Harga</th>
+                                <th width="20px"class="text-center">Harga</th>
                                 <th width="280px"class="text-center">Deskripsi</th>
                                 <th width="280px"class="text-center">Action</th>
                             </tr>
@@ -122,7 +122,7 @@
                                 <td>{{ $item->id_menu }}</td>
                                 <td>
                                     {{-- {{ $item->image }} --}}
-                                    <img src="{{ asset('/image/'.$item->foto)}}" alt="" width="120px">
+                                    <img src="{{ asset('/image/'.$item->foto)}}" alt="Foto Menu" width="120px">
                                 </td>
                                 <td>{{ $item->nama_kategori }}</td>
                                 <td>{{ $item->nama_menu }}</td>

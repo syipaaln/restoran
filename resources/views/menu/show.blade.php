@@ -21,8 +21,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Gambar menu:</strong>
-                {{ $menu->image }}
+                {{-- <strong>Gambar menu:</strong> --}}
+                <img src="{{ asset('/image/'.$menu->foto) }}" alt="Foto Menu" width="120px">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

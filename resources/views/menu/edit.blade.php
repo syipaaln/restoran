@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('menu.update',$menu->id_menu) }}" method="POST">
+    <form action="{{ route('menu.update',$menu->id_menu) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -36,8 +36,9 @@
             </div> --}}
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Gambar Menu:</strong>
-                    <input type="image" name="image" value="{{ $menu->image }}" class="form-control" placeholder="Gambar Menu">
+                    <strong>Foto Menu:</strong>
+                    
+                    <input type="file" name="foto" value="{{ asset('/image/'.$menu->foto) }}" class="form-control" placeholder="Foto Menu">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

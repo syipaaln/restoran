@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth', 'checkrole2:1']], function() {
     Route::get('/admin', [AdminController::class, 'index']);
     // Crud
     Route::resource('menu',App\Http\Controllers\MenuController::class);
+    // Route::post('menu/{menu}', [MenuController::class, 'update']);
     Route::resource('kategori',App\Http\Controllers\KategoriController::class);
     Route::resource('pelanggan',App\Http\Controllers\PelangganController::class);
     Route::resource('pesanan',App\Http\Controllers\PesananController::class);

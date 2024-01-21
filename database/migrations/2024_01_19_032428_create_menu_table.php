@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_menu');
+            $table->id('id_menu');
             // $table->binary('image');
             $table->string('foto', 200)->default('default.png');
             $table->string('nama_menu');
