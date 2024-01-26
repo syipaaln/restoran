@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pesanan;
 use App\Models\Pelanggan;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
@@ -20,6 +21,7 @@ class PesananController extends Controller
 
         $pesanan = DB::table('pesanans')
                     ->join('pelanggans', 'pesanans.id_pelanggan', '=', 'pelanggans.id_pelanggan')
+                    ->join('menu', 'pesanans.id_menu', '=', 'pesanans.id_menu')
                     ->get();
         //tampilkan view barang dan kirim datanya ke view tersebut
         return view('pesanan.index',compact('pesanan'))->with('pesanan', $pesanan);
@@ -31,7 +33,8 @@ class PesananController extends Controller
     public function create()
     {
         $pelanggan = Pelanggan::all();
-        return view('pesanan.create', compact('pelanggan'));
+        $menu = Menu::all();
+        return view('pesanan.create', compact('pelanggan', 'menu'));
     }
 
     /**
@@ -41,8 +44,10 @@ class PesananController extends Controller
     {
         $request->validate([
             // 'id_pesanan' => 'required',
-            'id_pelanggan' => 'required',
             'tggl_pesanan' => 'required',
+            'id_pelanggan' => 'required',
+            'id_menu' => 'required',
+            'jumlah' => 'required',
             'total_harga' => 'required',
         ]);
 
@@ -65,7 +70,8 @@ class PesananController extends Controller
     public function edit(Pesanan $pesanan)
     {
         $pelanggan = Pelanggan::all();
-        return view('pesanan.edit', compact('pesanan', 'pelanggan'));
+        $menu = Menu::all();
+        return view('pesanan.edit', compact('pesanan', 'pelanggan', 'menu'));
     }
 
     /**
@@ -75,8 +81,10 @@ class PesananController extends Controller
     {
         $request->validate([
             // 'id_pesanan' => 'required',
-            'id_pelanggan' => 'required',
             'tggl_pesanan' => 'required',
+            'id_pelanggan' => 'required',
+            'id_menu' => 'required',
+            'jumlah' => 'required',
             'total_harga' => 'required',
         ]);
 

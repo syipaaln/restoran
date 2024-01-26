@@ -12,6 +12,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\KategoriMenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Order2Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +49,7 @@ Route::group(['middleware' => ['auth', 'checkrole2:1']], function() {
     Route::resource('pesanan',App\Http\Controllers\PesananController::class);
     Route::resource('detailpesanan',App\Http\Controllers\DetailPesananController::class);
     Route::resource('order',App\Http\Controllers\OrderController::class);
+    Route::resource('order2',App\Http\Controllers\Order2Controller::class);
 });
 
 // untuk pegawai

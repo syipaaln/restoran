@@ -35,6 +35,12 @@
             </div> --}}
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Tanggal Pesanan:</strong>
+                    <input type="date" name="tggl_pesanan" class="form-control" placeholder="Tanggal Pesanan" value="{{ $pesanan->tggl_pesanan }}">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Nama Pelanggan:</strong>
                     <select class="form-control" id="pelanggan-option" name="id_pelanggan">
                         @foreach ($pelanggan as $pel)
@@ -47,8 +53,26 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Tanggal Pesanan:</strong>
-                    <input type="date" name="tggl_pesanan" class="form-control" placeholder="Tanggal Pesanan" value="{{ $pesanan->tggl_pesanan }}">
+                    <strong>Nama Menu:</strong>
+                    <select class="form-control" id="menu-option" name="id_menu">
+                        @foreach ($menu as $menu)
+                            <option value="{{ $menu->id_menu }}" {{ $pesanan->id_menu == $menu->id_menu ? 'selected' : '' }}>
+                                {{ $menu->nama_menu }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Harga:</strong>
+                    <input type="number" name="harga" id="harga" class="form-control" placeholder="Harga" readonly>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Jumlah:</strong>
+                    <input type="number" name="jumlah" class="form-control" placeholder="Jumlah" value="{{ $pesanan->jumlah }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

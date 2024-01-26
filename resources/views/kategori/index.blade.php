@@ -71,10 +71,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
                                 Pesanan
                             </a>
-                            <a class="nav-link" href="detailpesanan">
+                            {{-- <a class="nav-link" href="detailpesanan">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
                                 Detail Pesanan
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </nav>
@@ -115,8 +115,8 @@
                             @foreach ($kategori as $kategori => $item)
                             <tr>
                                 <td class="text-center">{{ ++$kategori }}</td>
-                                <td>{{ $item->id_kategori }}</td>
-                                <td>{{ $item->nama_kategori }}</td>
+                                <td class="text-center">{{ $item->id_kategori }}</td>
+                                <td class="text-center">{{ $item->nama_kategori }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('kategori.destroy',$item->id_kategori) }}" method="POST">
                     

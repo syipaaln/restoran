@@ -13,7 +13,7 @@ class Pesanan extends Model
     protected $primaryKey = 'id_pesanan';
 
     protected $fillable = [
-        'id_pelanggan','tggl_pesanan','total_harga'
+        'tggl_pesanan','id_pelanggan','id_menu','jumlah','total_harga'
     ];
 
     // Definisikan relasi ke model DetailPesanan
@@ -26,5 +26,23 @@ class Pesanan extends Model
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan', 'id_pelanggan');
+    }
+
+    // Definisikan relasi ke model Menu
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'id_menu', 'id_menu');
+    }
+
+    // Accessor untuk mengambil harga dari menu terkait
+    public function getHargaAttribute()
+    {
+        return $this->menu->harga;
+    }
+
+    // Mutator untuk menghitung total
+    public function setTotalAttribute()
+    {
+        $this->attributes['total_harga'] = $this->jumlah * $this->harga;
     }
 }

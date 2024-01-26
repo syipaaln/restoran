@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id('id_pesanan');
-            $table->unsignedBigInteger('id_pelanggan'); // Assuming 'id_pelanggan' is a foreign key referencing another table
             $table->date('tggl_pesanan');
+            $table->unsignedBigInteger('id_pelanggan'); // Assuming 'id_pelanggan' is a foreign key referencing another table
+            $table->unsignedBigInteger('id_menu'); // Assuming 'id_menu' is a foreign key referencing another table
+            $table->integer('jumlah');
             $table->integer('total_harga'); // Corrected 'int' to 'integer'
             $table->timestamps();
         });

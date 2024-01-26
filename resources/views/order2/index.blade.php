@@ -66,7 +66,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Detail Pesanan
                         </a> --}}
-                        <a class="nav-link" href="order">
+                        <a class="nav-link" href="order2">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Order
                         </a>
@@ -82,7 +82,7 @@
                             <h2>Data Order</h2>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-success" href="{{ route('order.create') }}"> Input Order</a>
+                            <a class="btn btn-success" href="{{ route('order2.create') }}"> Input Order</a>
                         </div>
                     </div>
                 </div>
@@ -96,27 +96,27 @@
                 <table class="table table-bordered">
                     <tr>
                         <th width="20px" class="text-center">No</th>
-                        <th width="20px" class="text-center">Id Order</th>
-                        <th width="280px" class="text-center">Nama Order</th>
-                        <th width="280px"class="text-center">Tanggal Order</th>
-                        <th width="20px"class="text-center">Jumlah Order</th>
+                        <th width="20px" class="text-center">Id Pesan</th>
+                        <th width="280px" class="text-center">Nama Pesanan</th>
+                        <th width="20px"class="text-center">Jumlah Pesanan</th>
+                        <th width="280px"class="text-center">Tanggal Pesanan</th>
                         <th width="280px"class="text-center">Deskripsi</th>
-                        <th width="280px"class="text-center">Action</th>
+                        <th width="300px"class="text-center">Action</th>
                     </tr>
-                    @foreach ($order as $order)
+                    @foreach ($order2 as $order2)
                     <tr>
                         <td class="text-center">{{ ++$i }}</td>
-                        <td>{{ $order->id_order }}</td>
-                        <td>{{ $order->nm_order }}</td>
-                        <td>{{ $order->tgl_order }}</td>
-                        <td>{{ $order->jmlh_order }}</td>
-                        <td>{{ $order->deskripsi }}</td>
+                        <td>{{ $order2->id_pesan }}</td>
+                        <td>{{ $order2->nm_pesanan }}</td>
+                        <td>{{ $order2->jmlh_pesanan }}</td>
+                        <td>{{ $order2->tgl_pesanan }}</td>
+                        <td>{{ $order2->deskripsi }}</td>
                         <td class="text-center">
-                            <form action="{{ route('order.destroy',$order->id_order) }}" method="POST">
+                            <form action="{{ route('order2.destroy',$order2->id_pesan) }}" method="POST">
             
-                               <a class="btn btn-info btn-sm" href="{{ route('order.show',$order->id_order) }}">Show</a>
+                               <a class="btn btn-info btn-sm" href="{{ route('order2.show',$order2->id_pesan) }}">Show</a>
             
-                                <a class="btn btn-primary btn-sm" href="{{ route('order.edit',$order->id_order) }}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('order2.edit',$order2->id_pesan) }}">Edit</a>
             
                                 @csrf
                                 @method('DELETE')

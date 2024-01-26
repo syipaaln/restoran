@@ -71,10 +71,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
                                 Pesanan
                             </a>
-                            <a class="nav-link" href="detailpesanan">
+                            {{-- <a class="nav-link" href="detailpesanan">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
                                 Detail Pesanan
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </nav>
@@ -109,18 +109,22 @@
                             <tr>
                                 <th width="20px" class="text-center">No</th>
                                 <th width="120px" class="text-center">Id Pesanan</th>
-                                <th width="200px" class="text-center">Nama Pelanggan</th>
                                 <th width="200px" class="text-center">Tanggal Pesanan</th>
+                                <th width="200px" class="text-center">Nama Pelanggan</th>
+                                <th width="200px" class="text-center">Nama Menu</th>
+                                <th width="200px" class="text-center">Jumlah</th>
                                 <th width="200px"class="text-center">Total Harga</th>
                                 <th width="280px"class="text-center">Action</th>
                             </tr>
                             @foreach ($pesanan as $pesanan => $item)
                             <tr>
                                 <td class="text-center">{{ ++$pesanan }}</td>
-                                <td>{{ $item->id_pesanan }}</td>
-                                <td>{{ $item->nama_pelanggan }}</td>
-                                <td>{{ $item->tggl_pesanan }}</td>
-                                <td>{{ $item->total_harga }}</td>
+                                <td class="text-center">{{ $item->id_pesanan }}</td>
+                                <td class="text-center">{{ $item->tggl_pesanan }}</td>
+                                <td class="text-center">{{ $item->nama_pelanggan }}</td>
+                                <td class="text-center">{{ $item->nama_menu }}</td>
+                                <td class="text-center">{{ $item->jumlah }}</td>
+                                <td class="text-center">{{ $item->total_harga }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('pesanan.destroy',$item->id_pesanan) }}" method="POST">
                     

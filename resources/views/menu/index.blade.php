@@ -71,10 +71,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
                                 Pesanan
                             </a>
-                            <a class="nav-link" href="detailpesanan">
+                            {{-- <a class="nav-link" href="detailpesanan">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
                                 Detail Pesanan
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </nav>
@@ -108,26 +108,26 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th width="20px" class="text-center">No</th>
-                                <th width="120px" class="text-center">Id Menu</th>
+                                <th width="100px" class="text-center">Id Menu</th>
                                 <th width="120px" class="text-center">Gambar Menu</th>
                                 <th width="200px" class="text-center">Kategori</th>
                                 <th width="200px"class="text-center">Nama Menu</th>
-                                <th width="20px"class="text-center">Harga</th>
+                                <th width="120px"class="text-center">Harga</th>
                                 <th width="280px"class="text-center">Deskripsi</th>
                                 <th width="280px"class="text-center">Action</th>
                             </tr>
                             @foreach ($menu as $menu => $item)
                             <tr>
                                 <td class="text-center">{{ ++$menu }}</td>
-                                <td>{{ $item->id_menu }}</td>
-                                <td>
+                                <td class="text-center">{{ $item->id_menu }}</td>
+                                <td class="text-center">
                                     {{-- {{ $item->image }} --}}
                                     <img src="{{ asset('/image/'.$item->foto)}}" alt="Foto Menu" width="120px">
                                 </td>
-                                <td>{{ $item->nama_kategori }}</td>
-                                <td>{{ $item->nama_menu }}</td>
-                                <td>{{ $item->harga }}</td>
-                                <td>{{ $item->deskripsi }}</td>
+                                <td class="text-center">{{ $item->nama_kategori }}</td>
+                                <td class="text-center">{{ $item->nama_menu }}</td>
+                                <td class="text-center">Rp. {{ $item->harga }}</td>
+                                <td class="text-center">{{ $item->deskripsi }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('menu.destroy',$item->id_menu) }}" method="POST">
                     

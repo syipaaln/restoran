@@ -44,6 +44,7 @@
                 <strong>Kategori:</strong>
                 <select class="form-control" id="kategori-option" name="id_kategori">
                     @foreach ($kategori as $kat)
+                        <option value="">Pilih Kategori</option>
                         <option value="{{ $kat->id_kategori }}">{{ $kat->nama_kategori }}</option>
                     @endforeach
                  </select>
@@ -73,4 +74,17 @@
     </div>
 
 </form>
+
+<script>
+    // Mendapatkan elemen select
+    var selectElement = document.getElementById("kategori-option");
+
+    // Menandai opsi yang akan dinonaktifkan
+    var optionsToDisable = [0]; // Misalnya, nonaktifkan opsi pertama (indeks 0)
+
+    // Mengonfigurasi opsi yang akan dinonaktifkan
+    optionsToDisable.forEach(function(index) {
+        selectElement.options[index].disabled = true;
+    });
+</script>
 @endsection

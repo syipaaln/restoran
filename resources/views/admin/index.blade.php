@@ -71,10 +71,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
                                 Pesanan
                             </a>
-                            <a class="nav-link" href="detailpesanan">
+                            {{-- <a class="nav-link" href="detailpesanan">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
                                 Detail Pesanan
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </nav>
