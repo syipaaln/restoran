@@ -21,7 +21,7 @@ class PesananController extends Controller
 
         $pesanan = DB::table('pesanans')
                     ->join('pelanggans', 'pesanans.id_pelanggan', '=', 'pelanggans.id_pelanggan')
-                    ->join('menu', 'pesanans.id_menu', '=', 'pesanans.id_menu')
+                    ->join('menu', 'menu.id_menu', '=', 'pesanans.id_menu')
                     ->get();
         //tampilkan view barang dan kirim datanya ke view tersebut
         return view('pesanan.index',compact('pesanan'))->with('pesanan', $pesanan);
@@ -61,8 +61,26 @@ class PesananController extends Controller
      */
     public function show(Pesanan $pesanan)
     {
-        return view('pesanan.show',compact('pesanan'));
+        // return view('pesanan.show',compact('pesanan'));
+
+        // Ambil data pesanan dan relasinya (misalnya pelanggan dan menu)
+        $pesanan = Pesanan::with('pelanggan', 'menu')->find($pesanan->id_pesanan);
+
+        // Tampilkan view struk pesanan dengan data yang diperlukan
+        return view('pesanan.receipt', compact('pesanan'));
     }
+
+    /**
+     * Display the receipt for the specified resource.
+     */
+    // public function receipt(Pesanan $pesanan)
+    // {
+    //     // Ambil data pesanan dan relasinya (misalnya pelanggan dan menu)
+    //     $pesanan = Pesanan::with('pelanggan', 'menu')->find($pesanan->id_pesanan);
+
+    //     // Tampilkan view struk pesanan dengan data yang diperlukan
+    //     return view('pesanan.receipt', compact('pesanan'));
+    // }
 
     /**
      * Show the form for editing the specified resource.

@@ -43,8 +43,8 @@
             <div class="form-group">
                 <strong>Kategori:</strong>
                 <select class="form-control" id="kategori-option" name="id_kategori">
+                    <option value="">Pilih Kategori</option>
                     @foreach ($kategori as $kat)
-                        <option value="">Pilih Kategori</option>
                         <option value="{{ $kat->id_kategori }}">{{ $kat->nama_kategori }}</option>
                     @endforeach
                  </select>

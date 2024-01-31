@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'checkrole2:1']], function() {
     Route::resource('kategori',App\Http\Controllers\KategoriController::class);
     Route::resource('pelanggan',App\Http\Controllers\PelangganController::class);
     Route::resource('pesanan',App\Http\Controllers\PesananController::class);
+    Route::get('pesanans/{pesanan}/receipt', [PesananController::class, 'receipt'])->name('pesanans.receipt');
     Route::resource('detailpesanan',App\Http\Controllers\DetailPesananController::class);
     Route::resource('order',App\Http\Controllers\OrderController::class);
     Route::resource('order2',App\Http\Controllers\Order2Controller::class);

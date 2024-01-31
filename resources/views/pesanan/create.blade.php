@@ -43,8 +43,8 @@
             <div class="form-group">
                 <strong>Nama Pelanggan:</strong>
                 <select class="form-control" id="pelanggan-option" name="id_pelanggan">
+                    <option>Pilih Pelanggan</option>
                     @foreach ($pelanggan as $pel)
-                        <option>Pilih Pelanggan</option>
                         <option value="{{ $pel->id_pelanggan }}">{{ $pel->nama_pelanggan }}</option>
                     @endforeach
                  </select>
@@ -54,8 +54,8 @@
             <div class="form-group">
                 <strong>Nama Menu:</strong>
                 <select class="form-control" id="menu-option" name="id_menu">
+                    <option value="">Pilih menu</option>
                     @foreach ($menu as $menu)
-                        <option value="">Pilih menu</option>
                         <option value="{{ $menu->id_menu }}" data-harga="{{ $menu->harga }}">{{ $menu->nama_menu }}</option>
                     @endforeach
                  </select>
