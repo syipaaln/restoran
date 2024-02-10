@@ -138,7 +138,7 @@
                                         @csrf
                                         @method('DELETE')
                     
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Jika Anda menghapus menu ini, Anda akan menghapus data detail pesanan yang menggunakan menu ini. Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Jika Anda menghapus menu ini, Anda akan menghapus data pesanan yang menggunakan menu ini. Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>

@@ -67,7 +67,7 @@ class PesananController extends Controller
         $pesanan = Pesanan::with('pelanggan', 'menu')->find($pesanan->id_pesanan);
 
         // Tampilkan view struk pesanan dengan data yang diperlukan
-        return view('pesanan.receipt', compact('pesanan'));
+        return view('pesanan.show', compact('pesanan'));
     }
 
     /**

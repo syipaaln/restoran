@@ -36,19 +36,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama Pelanggan:</strong>
-                <input type="text" name="nama_pelanggan" class="form-control" placeholder="pelanggan">
+                <input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Pelanggan">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Alamat pelanggan :</strong>
-                <input type="text" name="alamat_pelanggan" class="form-control" placeholder="alamat pelanggan">
+                <input type="text" name="alamat_pelanggan" class="form-control" placeholder="Alamat Pelanggan">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>No Telepon Pelanggan:</strong>
-                <input type="number" name="no_telpon" class="form-control" placeholder="No Telepon">
+                <input type="number" name="no_telpon" class="form-control" placeholder="No Telepon Pelanggan">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
