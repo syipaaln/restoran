@@ -108,115 +108,115 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-  /**
- * Update the specified resource in storage.
- */
-// public function update(Request $request, Menu $menu)
-// {
-//     // $menu->foto = $request->foto
-//     // $menu->nama_menu = $request->nama_menu;
-//     // $menu->harga = $request->harga;
-//     // $menu->deskripsi = $request->deskripsi;
+    /**
+     * Update the specified resource in storage.
+     */
+    // public function update(Request $request, Menu $menu)
+    // {
+    //     // $menu->foto = $request->foto
+    //     // $menu->nama_menu = $request->nama_menu;
+    //     // $menu->harga = $request->harga;
+    //     // $menu->deskripsi = $request->deskripsi;
 
-//     // if($request->has('foto')) {
-//     //     $image = $request->file('foto');
-//     //     $fileName = time() . '.' . $image->getClientOriginalExtension();
-//     //     $image->move(public_path('image/', $fileName));
-//     //     $menu->foto = $request->file('foto')->getClientOriginalName();
-//     //     $menu->foto = $fileName;
-//     // };
+    //     // if($request->has('foto')) {
+    //     //     $image = $request->file('foto');
+    //     //     $fileName = time() . '.' . $image->getClientOriginalExtension();
+    //     //     $image->move(public_path('image/', $fileName));
+    //     //     $menu->foto = $request->file('foto')->getClientOriginalName();
+    //     //     $menu->foto = $fileName;
+    //     // };
 
-//     // $menu->update();
+    //     // $menu->update();
 
-//     // $request->validate([
-//     //     // 'id_menu' => 'required',
-//     //     'foto' => 'required',
-//     //     'id_kategori' => 'required',
-//     //     'nama_menu' => 'required',
-//     //     'harga' => 'required',
-//     //     'deskripsi' => 'required',
-//     // ]);
+    //     // $request->validate([
+    //     //     // 'id_menu' => 'required',
+    //     //     'foto' => 'required',
+    //     //     'id_kategori' => 'required',
+    //     //     'nama_menu' => 'required',
+    //     //     'harga' => 'required',
+    //     //     'deskripsi' => 'required',
+    //     // ]);
 
-//     // $menu->update($request->all());
+    //     // $menu->update($request->all());
 
-//     // return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Update');
+    //     // return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Update');
 
-//     $id = $request->get('id');
-//         if($id){
-//             $menu = Menu::find($id);
-//         }
-//         if($request->hasFile('foto')){
-//             $foto = $request->file('foto');
-//             $request->validate([
-//                 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-//             ]);
-//             $imageName = time() . '.' . $foto->getClientOriginalExtension();
-//             $destinationPath = 'image/';
-//             $foto->move($destinationPath, $imageName);
-//             $menu->foto = $imageName;
-//         }
-//         $menu->id_kategori = $request->id_kategori;
-//         $menu->nama_menu = $request->nama_menu;
-//         $menu->harga = $request->harga;
-//         $menu->deskripsi =$request->deskripsi;
-//         $menu->save();
-//         return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Update');
-// }
+    //     $id = $request->get('id');
+    //         if($id){
+    //             $menu = Menu::find($id);
+    //         }
+    //         if($request->hasFile('foto')){
+    //             $foto = $request->file('foto');
+    //             $request->validate([
+    //                 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    //             ]);
+    //             $imageName = time() . '.' . $foto->getClientOriginalExtension();
+    //             $destinationPath = 'image/';
+    //             $foto->move($destinationPath, $imageName);
+    //             $menu->foto = $imageName;
+    //         }
+    //         $menu->id_kategori = $request->id_kategori;
+    //         $menu->nama_menu = $request->nama_menu;
+    //         $menu->harga = $request->harga;
+    //         $menu->deskripsi =$request->deskripsi;
+    //         $menu->save();
+    //         return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Update');
+    // }
 
-public function update(Request $request, Menu $menu)
-{
-    $request->validate([
-        'id_kategori' => 'required',
-        'nama_menu' => 'required',
-        'harga' => 'required',
-        'deskripsi' => 'required',
-    ]);
-
-    // Mengupdate data menu tanpa memperbarui foto jika tidak diupload
-    $menu->update([
-        'id_kategori' => $request->id_kategori,
-        'nama_menu' => $request->nama_menu,
-        'harga' => $request->harga,
-        'deskripsi' => $request->deskripsi,
-    ]);
-
-    // Cek apakah ada file foto yang diupload
-    if ($request->hasFile('foto')) {
-        $foto = $request->file('foto');
-
-        // Validasi foto baru
+    public function update(Request $request, Menu $menu)
+    {
         $request->validate([
-            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'id_kategori' => 'required',
+            'nama_menu' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
         ]);
+
+        // Mengupdate data menu tanpa memperbarui foto jika tidak diupload
+        $menu->update([
+            'id_kategori' => $request->id_kategori,
+            'nama_menu' => $request->nama_menu,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        // Cek apakah ada file foto yang diupload
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+
+            // Validasi foto baru
+            $request->validate([
+                'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+
+            // Hapus foto lama (jika ada)
+            if ($menu->foto) {
+                unlink(public_path('image/' . $menu->foto));
+            }
+
+            // Simpan foto baru
+            $imageName = time() . '.' . $foto->getClientOriginalExtension();
+            $destinationPath = 'image/';
+            $foto->move($destinationPath, $imageName);
+            $menu->update(['foto' => $imageName]);
+        }
+
+        return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Update');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Menu $menu)
+    {
+        $menu->delete();
 
         // Hapus foto lama (jika ada)
         if ($menu->foto) {
             unlink(public_path('image/' . $menu->foto));
         }
 
-        // Simpan foto baru
-        $imageName = time() . '.' . $foto->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $foto->move($destinationPath, $imageName);
-        $menu->update(['foto' => $imageName]);
+        return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Hapus');
     }
-
-    return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Update');
-}
-
-/**
- * Remove the specified resource from storage.
- */
-public function destroy(Menu $menu)
-{
-    $menu->delete();
-
-    // Hapus foto lama (jika ada)
-    if ($menu->foto) {
-        unlink(public_path('image/' . $menu->foto));
-    }
-
-    return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Hapus');
-}
 
 }
