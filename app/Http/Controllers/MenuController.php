@@ -211,6 +211,11 @@ public function destroy(Menu $menu)
 {
     $menu->delete();
 
+    // Hapus foto lama (jika ada)
+    if ($menu->foto) {
+        unlink(public_path('image/' . $menu->foto));
+    }
+
     return redirect()->route('menu.index')->with('success', 'Menu Berhasil di Hapus');
 }
 
